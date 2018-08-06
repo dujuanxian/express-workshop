@@ -1,3 +1,12 @@
-<p>
-  search works!
-</p>
+<article>
+  <h1>查询单号</h1>
+
+  <section>
+    <form #form="ngForm">
+      <div class="search-input">
+        <input type="text" [(ngModel)]="number" name="number" placeholder="请输入10位快递单号" />
+        <button type="submit">搜索</button>
+      </div>
+    </form>
+  </section>
+</article>

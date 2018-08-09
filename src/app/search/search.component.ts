@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class SearchComponent {
   number: string;
   isInvalid = false;
+  trackingList = [];
 
   constructor() { }
 

@@ -15,9 +15,12 @@ h1 {
 .search-input {
   display: flex;
   justify-content: center;
+  width: 600px;
+  flex-wrap: wrap;
+  margin: 0 auto;
 
   input {
-    width: 520px;
+    width: 480px;
     height: 80px;
     line-height: 80px;
     padding: 0 20px;
@@ -36,5 +39,11 @@ h1 {
     border: none;
     font-size: 18px;
     letter-spacing: 2px;
+  }
+
+  .error-message {
+    width: 600px;
+    line-height: 60px;
+    color: #ffea99;
   }
 }

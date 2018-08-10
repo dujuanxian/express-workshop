@@ -6,6 +6,7 @@ import { SearchService } from './search.service';
 import { of } from 'rxjs/internal/observable/of';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ITracking } from './tracking';
+import { throwError } from 'rxjs/internal/observable/throwError';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -84,6 +85,19 @@ describe('SearchComponent', () => {
       component.searchNumber();
 
       expect(component.trackingList).toEqual(trackingList);
+      expect(component.errorMessage).toBeNull();
+    });
+
+    it ('failed with error response', function () {
+      spyOn(searchService, 'getTrackingList').and.returnValue(
+        throwError({status: 404, message: '单号不存在'})
+      );
+
+      component.number = '1234567890';
+      component.searchNumber();
+
+      expect(component.trackingList).toEqual([]);
+      expect(component.errorMessage).toBe('单号不存在');
     });
   });
 });

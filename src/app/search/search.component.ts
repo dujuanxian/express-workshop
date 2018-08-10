@@ -12,6 +12,7 @@ export class SearchComponent {
   number: string;
   isInvalid = false;
   trackingList: ITracking[] = [];
+  errorMessage: string = null;
 
   constructor(
     private searchService: SearchService

@@ -1,12 +1,10 @@
 <article>
   <h1>查询单号</h1>
 
-  <section>
-    <div class="search-input">
-      <input type="text" [(ngModel)]="number" (keyup)="validateNumber()" name="number" placeholder="请输入10位快递单号" />
-      <button>搜索</button>
-      <div class="error-message" *ngIf="isInvalid">请输入10位有效数字单号</div>
-    </div>
+  <section class="search-input">
+    <input type="text" [(ngModel)]="number" (keyup)="validateNumber()" name="number" placeholder="请输入10位快递单号" />
+    <button (click)="searchNumber()">搜索</button>
+    <div class="error-message" *ngIf="errorMessage">{{errorMessage}}</div>
   </section>
 
   <section class="search-tracking-list" *ngIf="trackingList.length !== 0">

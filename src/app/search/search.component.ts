@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ITracking } from './tracking';
 
 @Component({
   selector: 'app-search',
@@ -8,10 +9,14 @@ import { Component } from '@angular/core';
 export class SearchComponent {
   number: string;
   isInvalid = false;
-  trackingList = [];
+  trackingList: ITracking[] = [];
 
   constructor() { }
 
   validateNumber() {
+    this.isInvalid = this.number.length !== 10 || !(new RegExp('^[0-9]*$').test(this.number));
+  }
+
+  searchNumber () {
   }
 }
